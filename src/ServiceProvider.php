@@ -42,7 +42,8 @@ class ServiceProvider extends BaseServiceProvider
         // cache response service di
         $this->app->singleton(CacheResponseServiceInterface::class, CacheResponseService::class);
 
-        $this->app->bind('command.varnish:flush', FlushVarnishCache::class);
+        // add command to clear cache
+        $this->commands([FlushVarnishCache::class]);
     }
 
     /**
