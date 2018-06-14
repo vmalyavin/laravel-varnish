@@ -22,5 +22,12 @@
     "psr-4": {
       "Minter\\Varnish\\": "src//"
     }
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Minter\\Varnish\\ServiceProvider"
+      ]
+    }
   }
 }
