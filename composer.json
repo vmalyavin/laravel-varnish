@@ -1,0 +1,26 @@
+{
+  "name": "MinterTeam/laravel-varnish",
+  "description": "Mark responses as cacheable and clear cache by tags",
+  "type": "library",
+  "authors": [
+    {
+      "name": "Vasiliy Malyavin",
+      "email": "vasiliymalyavin@gmail.com"
+    }
+  ],
+  "minimum-stability": "stable",
+  "require": {
+    "php": ">=7.1",
+    "guzzlehttp/guzzle": "^6.3",
+    "illuminate/console": "~5.5|~5.6",
+    "illuminate/http": "~5.5|~5.6"
+  },
+  "require-dev": {
+    "php": ">=7.1"
+  },
+  "autoload": {
+    "psr-4": {
+      "Minter\\Varnish\\": "src//"
+    }
+  }
+}
