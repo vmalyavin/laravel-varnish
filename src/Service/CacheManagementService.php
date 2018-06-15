@@ -89,7 +89,7 @@ class CacheManagementService implements CacheManagementServiceInterface
     private function sendRequest(string $method, string $url, array $options = [])
     {
         try {
-            $this->httpClient->requestAsync($method, $url, $options);
+            $this->httpClient->request($method, $url, $options);
         } catch (\Exception $e) {
             $options = json_encode($options, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
             throw new \Exception(

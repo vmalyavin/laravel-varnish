@@ -34,10 +34,11 @@ sub cache_clearing {
     }
 }
 
-# vcl_recv - serve cache clearing requests and strip cookies л
+# vcl_recv - serve cache clearing requests and strip cookies
 sub vcl_recv {
     # API requests is not using cookies in our conception - so we need to strip cookies for global cache every request
     unset req.http.cookie;
+
     call cache_clearing;
 }
 
@@ -55,6 +56,9 @@ sub vcl_backend_response {
   		unset beresp.http.set-cookie;
   		unset beresp.http.Vary;
   		set beresp.ttl = std.duration(beresp.http.x-cache + "s", 1h);
+  		# remove service cache headers
+  		# unset beresp.http.x-tag;
+  		# unset beresp.http.x-cache;
   	} else {
   		set beresp.uncacheable = true;
   	}
