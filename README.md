@@ -1,6 +1,6 @@
-# Varnish integration for Laravel
+# Varnish integration for Laravel API
 
-The package inspired by [this laravel-varnish integration](https://github.com/spatie/laravel-varnish), but implements the idea of dynamic entity-related caching.
+The package inspired by [this laravel-varnish integration](https://github.com/spatie/laravel-varnish), but implements the idea of caching dynamic entity-related data in API responses(that means responses is't need cookies)
 
 ## Installation
 
@@ -8,7 +8,7 @@ The package inspired by [this laravel-varnish integration](https://github.com/sp
 First, you will need to install the Varnish on your server. To work with this extension, you need a special vcl configuration. Please see 
 [VCL configuration templates](varnish-configuration-templates)
 
-#### Laravel instalation
+#### Laravel installation
 Install the package via composer:
 ``` bash
 composer require MinterTeam/laravel-varnish

@@ -34,17 +34,19 @@ sub cache_clearing {
     }
 }
 
-# vcl_recv - serve cache clearing requests
+# vcl_recv - serve cache clearing requests and strip cookies л
 sub vcl_recv {
+    # API requests is not using cookies in our conception - so we need to strip cookies for global cache every request
+    unset req.http.cookie;
     call cache_clearing;
 }
 
 # hash cache identification
-sub vcl_hash {
-    if(req.http.accept) {
-        hash_data(req.http.accept);
-    }
-}
+#sub vcl_hash {
+#    if(req.http.accept) {
+#        hash_data(req.http.accept);
+#    }
+#}
 
 # cache backend response
 sub vcl_backend_response {
