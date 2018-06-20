@@ -26,6 +26,9 @@ class CacheManagementService implements CacheManagementServiceInterface
      */
     public function clearByTags(array $tags): void
     {
+        if (empty($tags)) {
+            return;
+        }
         sort($tags);
         $pattern = implode('|', $tags);
         $s       = CacheResponseService::TAG_SEP;
@@ -46,6 +49,9 @@ class CacheManagementService implements CacheManagementServiceInterface
      */
     public function clearByTagsAll(array $tags): void
     {
+        if (empty($tags)) {
+            return;
+        }
         sort($tags);
         $s       = CacheResponseService::TAG_SEP;
         $pattern = implode($s . '.*' . $s, $tags);
