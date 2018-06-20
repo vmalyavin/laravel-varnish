@@ -37,7 +37,7 @@ class CacheResponseService implements CacheResponseServiceInterface
      */
     public function addTags(array $tags): void
     {
-        array_merge($this->responseTags, $tags);
+        $this->responseTags = array_merge($this->responseTags, $tags);
     }
 
     /**
