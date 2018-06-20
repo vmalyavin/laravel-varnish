@@ -2,7 +2,7 @@
 
 namespace Minter\Varnish\Service;
 
-use Illuminate\Http\Response;
+use Symfony\Component\HttpFoundation\Response;
 
 class CacheResponseService implements CacheResponseServiceInterface
 {
@@ -66,12 +66,12 @@ class CacheResponseService implements CacheResponseServiceInterface
     /**
      * Add cache headers to response
      *
-     * @param Response    $response
-     * @param string|null $cacheTtl
+     * @param \Illuminate\Http\Response|\Illuminate\Http\JsonResponse $response
+     * @param string|null                                             $cacheTtl
      *
      * @return Response
      */
-    public function addCacheHeadersToResponse(Response $response, string $cacheTtl = null): Response
+    public function addCacheHeadersToResponse($response, string $cacheTtl = null):Response
     {
         /**
          * Response cache TTL priority:

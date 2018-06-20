@@ -3,7 +3,7 @@
 namespace Minter\Varnish\Middleware;
 
 use Closure;
-use Illuminate\Http\Response;
+use Symfony\Component\HttpFoundation\Response;
 use Minter\Varnish\Service\CacheResponseServiceInterface;
 
 class AddCacheHeaders
@@ -32,7 +32,7 @@ class AddCacheHeaders
      */
     public function handle($request, Closure $next, string $cacheTtl = null)
     {
-        /*** @var Response $response */
+        /*** @var \Illuminate\Http\Response|\Illuminate\Http\JsonResponse $response */
         $response = $next($request);
 
         return $this->cacheResponseService->addCacheHeadersToResponse($response, $cacheTtl);
