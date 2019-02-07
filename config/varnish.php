@@ -1,5 +1,7 @@
 <?php
 return [
+    // flag
+    'is_configured'      => true,
     // Url where varnish listen managment http commands
     'management_uri'     => 'http://example.com',
     // Timeout for http client init
